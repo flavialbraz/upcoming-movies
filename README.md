@@ -1,13 +1,14 @@
-# Exibição de filmes que estão nos cinemas
- 
+# 📽️ Exibição de filmes que estão nos cinemas
+<p align="center">
+<img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
+</p>
+
+
 O aplicação foi criada com REACT JS, CSS E HMTL. A ideia principal é exibir os últimos filmes em cartaz, de forma dinamica utilizando a API https://www.themoviedb.org/documentation/api
 
 
 # 📁 Acesso ao projeto
-
-
-    :construction:  Projeto em construção  :construction:
-
+Confira online em: 
 **https://app-upcoming-movies.vercel.app/**
 
 
