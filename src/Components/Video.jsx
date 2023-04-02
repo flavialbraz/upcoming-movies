@@ -11,34 +11,24 @@ function Video () {
     
 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${ApiKey}&language=en-US`)  
+        fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${ApiKey}&language=pt-BR`)  
          .then(response => response.json())
          .then(data => {
-            setVideomovie(data.results) 
             
-        
+            setVideomovie(data.results [0]);
  
          })
     }, [id] )
   
 
-   
-
+    
     return (
         <div className="video-trailer">
 
-
-            {videomovie.map(video => {
-                return (
-                <li key={video.id}>      
-                   <iframe width="800" height="320" src={`${videoPathUrl}${video.key}`}> </iframe>                
-                </li>
-                
-                )
-            })}
-
- 
-
+        {videomovie && (
+             <iframe width="800" height="400" src={`${videoPathUrl}${videomovie.key}`}> 
+             </iframe>        
+        )}
         </div>
     )
 }
