@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { ApiKey } from "../Config/Key"
+
 import moment from "moment"
 
 
 function Home() {
+    const process = require('process');
+    const ApiKey = process.env.KEYAPI;
+
     const posterPathUrl = 'https://image.tmdb.org/t/p/original'
     const [movies, setMovies] = useState([])
     const [genres, setGenres] = useState({})

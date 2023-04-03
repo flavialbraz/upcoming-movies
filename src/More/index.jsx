@@ -3,12 +3,13 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import Cast from "../Components/Cast"
 import Video from "../Components/Video"
-import { ApiKey } from "../Config/Key"
- 
 import moment from "moment"
 
  
 function More () {
+    const process = require('process');
+    const ApiKey = process.env.KEYAPI;
+    
     const posterPathUrl = 'https://image.tmdb.org/t/p/w500'
     const { id } = useParams();
     const [movie, setMovie] = useState({});
