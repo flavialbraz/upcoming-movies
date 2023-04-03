@@ -4,12 +4,12 @@ import { useParams } from "react-router-dom"
 import Cast from "../Components/Cast"
 import Video from "../Components/Video"
 import moment from "moment"
+import process from 'process';
 
  
 function More () {
-    const process = require('process');
     const ApiKey = process.env.KEYAPI;
-    
+
     const posterPathUrl = 'https://image.tmdb.org/t/p/w500'
     const { id } = useParams();
     const [movie, setMovie] = useState({});

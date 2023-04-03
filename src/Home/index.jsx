@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-
 import moment from "moment"
+import process from 'process';
 
 
 function Home() {
-    const process = require('process');
     const ApiKey = process.env.KEYAPI;
 
     const posterPathUrl = 'https://image.tmdb.org/t/p/original'

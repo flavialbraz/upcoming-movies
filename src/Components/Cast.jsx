@@ -1,11 +1,12 @@
 
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import process from 'process';
+
 
 function Cast() {
-    const process = require('process');
     const ApiKey = process.env.KEYAPI;
-    
+
     const { id } = useParams();
     const [cast, SetCast] = useState([]);
 
