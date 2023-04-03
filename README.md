@@ -3,9 +3,9 @@
 <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
 </p>
 
-![app-upcoming-movies vercel app_](https://user-images.githubusercontent.com/78583429/213950531-555c2522-d7d0-4713-a57b-3842747541e7.png)
 
- 
+ ![screencapture-upcoming-movies-liart-vercel-app-2023-04-03-11_34_40 1](https://user-images.githubusercontent.com/78583429/229542114-acbfed49-8066-4ad4-b985-7bb79ff5d398.png)
+
 
 
  
@@ -14,7 +14,7 @@
 # 📁 O projeto
 A ideia principal é exibir os últimos filmes em cartaz, de forma dinamica utilizando [a API](https://www.themoviedb.org/documentation/api) 
 
-> https://app-upcoming-movies.vercel.app/
+> https://upcoming-movies-liart.vercel.app/
 
 
 
