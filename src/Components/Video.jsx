@@ -1,12 +1,11 @@
 
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import process from 'process';
+import { ApiKey } from "../Config/Key"
+
 
 
 function Video() {
-    const ApiKey = process.env.KEYAPI;
-
     const videoPathUrl = 'https://www.youtube.com/embed/'
     const { id } = useParams()
     const [videomovie, setVideomovie] = useState([])
@@ -25,7 +24,7 @@ function Video() {
                     setVideoFound(false)
                 }
             })
-    }, [id])
+    }, [])
 
 
     return (

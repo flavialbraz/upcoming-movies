@@ -14,6 +14,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/" element={<Home />} />
       <Route path="/more/:id" element={<More />} />
     </Routes>
- 
+
+    <footer className="footer"> Feito com ❤  Confira os próximos lançamentos  </footer>
+    
   </BrowserRouter>,
 )

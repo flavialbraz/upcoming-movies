@@ -1,31 +1,43 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
+import { ApiKey } from "../Config/Key"
 import moment from "moment"
-import process from 'process';
+import axios, { all } from "axios"
 
-
+ 
 function Home() {
-    const ApiKey = process.env.KEYAPI;
-
-    const posterPathUrl = 'https://image.tmdb.org/t/p/original'
+    const posterPathUrl = 'https://image.tmdb.org/t/p/w500'
     const [movies, setMovies] = useState([])
     const [genres, setGenres] = useState({})
-
+    const [featured, setFeatured] = useState([])
+ 
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${ApiKey}&language=pt-BR`)
-            .then(response => response.json())
-            .then(data => setGenres(data.genres))
+        axios.get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${ApiKey}&language=pt-BR`)
+         .then((response) => {
+          setGenres(response.data.genres) 
+      })
+
+      axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${ApiKey}&language=pt-BR&page=1`)
+      .then(response => {
+        
+        const allFeatured = response.data.results.sort((a, b) => b.vote_average - a.vote_average)
+        setFeatured(allFeatured.slice(0, 1))
+
+
+        const allMovies = response.data.results.map(({title, backdrop_path, release_date, genre_ids, id}) => ({
+            id,
+            title,
+            release_date,
+            backdrop_path,
+            genre_ids
+          })).sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+          setMovies(allMovies)
+          
+      })
+
     }, [])
 
-
-    useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${ApiKey}&language=pt-BR&page=1`)
-            .then(response => response.json())
-            .then(data => setMovies(data.results.sort((a, b) => b.vote_average - a.vote_average)))
-            .then(data => setMovies(data.results))
-    }, [])
-
-
+ 
  
 
     function getGenres(genreIds) {
@@ -40,8 +52,8 @@ function Home() {
       }
       
 
-    const featuredMovie = movies.length > 0 ? movies.slice(0, 1)[0] : null;
-    const otherMovies = movies.length > 0 ? movies.slice(1) : [];
+    const featuredMovie = featured.length > 0 ? featured.slice(0, 1)[0] : null;
+    const otherMovies = movies.length > 0 ? movies.slice(0) : [];
 
 
     return (
@@ -62,7 +74,7 @@ function Home() {
                         </div>
                     </div>
 
-                    <img src={`${posterPathUrl}${featuredMovie.backdrop_path}`} alt={featuredMovie.title} />
+                    <img src={`https://image.tmdb.org/t/p/original${featuredMovie.backdrop_path}`} alt={featuredMovie.title} />
 
                 </div>
             )}
@@ -83,9 +95,9 @@ function Home() {
                                 <div className="body-movie-description">
                                 <span className="genre-movie"> {getGenres(movie.genre_ids)}  </span>
 
-                                    <h2> {movie.title} </h2>
+                                    <h2> {movie.title} </h2> 
  
-                                     <span className="release-date"> {moment(movie.release_date).format('MM/DD/YYYY')}  </span>
+                                     <span className="release-date"> {moment(movie.release_date).format('DD/MM/YYYY')}  </span>
                                 </div>
                             </li>
                         )
@@ -94,7 +106,7 @@ function Home() {
                 </ul>
             </div>
 
-            <footer className="footer"> Feito com ❤  Confira os próximos lançamentos  </footer>
+            
         </div>
     )
 }

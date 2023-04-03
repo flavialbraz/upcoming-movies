@@ -4,11 +4,12 @@ import { useParams } from "react-router-dom"
 import Cast from "../Components/Cast"
 import Video from "../Components/Video"
 import moment from "moment"
-import process from 'process';
+import { ApiKey } from "../Config/Key"
+import axios from "axios"
+
 
  
 function More () {
-    const ApiKey = process.env.KEYAPI;
 
     const posterPathUrl = 'https://image.tmdb.org/t/p/w500'
     const { id } = useParams();
@@ -16,11 +17,9 @@ function More () {
     
  
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${ApiKey}&language=pt-BR&page=1`) 
-         .then(response => response.json())
-         .then(data => {
-          
-            const { title,  backdrop_path, overview, release_date} = data
+        axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${ApiKey}&language=pt-BR&page=1`) 
+         .then(response => {
+            const { title,  backdrop_path, overview, release_date} = response.data
             const movie = {
                 id,
                 title,
@@ -31,8 +30,9 @@ function More () {
 
             setMovie(movie)
 
-         } )
-    }, [id] )  
+         })
+ 
+    }, [] )  
 
  
 
@@ -43,7 +43,7 @@ function More () {
             <a href="/" className="back-arrow">   </a>
              <Video />
             <h1>{movie.title}</h1>
-            <span>Data de lançamento: {moment(movie.release).format('MM/DD/YYYY')}</span>
+            <span>Data de lançamento: {moment(movie.release).format('DD/MM/YYYY')}</span>
 
             <p> {movie.sinopese} </p>
 

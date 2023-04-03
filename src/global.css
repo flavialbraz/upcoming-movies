@@ -319,3 +319,53 @@ h1 {
   margin-bottom: 10px;
   opacity: 0.5;
 }
+
+.container.cast li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 18%;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.container.cast li img {
+  line-height: 15px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 100px;
+  background: #ffffff21;
+  font-size: 10px;
+  text-align: center;
+  border: 3px solid #ffffff00;
+}
+
+.container.cast {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.title-elenco {
+  width: 100%;
+}
+
+.container.cast li p {
+  font-size: 11px;
+  width: 100%;
+}
+ 
+.container.cast li strong {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.container.cast li:hover img {
+  border: 3px solid #ffffff36;
+}
