@@ -5,12 +5,13 @@ import Cast from "../Components/Cast"
 import Video from "../Components/Video"
 import { ApiKey } from "../Config/Key"
  
+import moment from "moment"
 
  
 function More () {
     const posterPathUrl = 'https://image.tmdb.org/t/p/w500'
-    const { id } = useParams()
-    const [movie, setMovie] = useState({})  
+    const { id } = useParams();
+    const [movie, setMovie] = useState({});
     
  
     useEffect(() => {
@@ -33,20 +34,24 @@ function More () {
     }, [id] )  
 
  
+
+ 
+ 
     return (
         <div className="container-movie">
             <a href="/" className="back-arrow">   </a>
              <Video />
             <h1>{movie.title}</h1>
-            <span>Data de lançamento: {movie.release}</span>
+            <span>Data de lançamento: {moment(movie.release).format('MM/DD/YYYY')}</span>
 
             <p> {movie.sinopese} </p>
 
             <div className="cast-infos">
-                    <Cast />
+                <Cast />
             </div>
 
         </div>
+        
          
          
     )
