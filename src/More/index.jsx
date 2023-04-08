@@ -6,7 +6,9 @@ import Video from "../Components/Video"
 import moment from "moment"
 import { ApiKey } from "../Config/Key"
 import axios from "axios"
+import { Favorite } from "../Components/Favorite"
 
+import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 
  
 function More () {
@@ -40,12 +42,16 @@ function More () {
  
     return (
         <div className="container-movie">
-            <a href="/" className="back-arrow">   </a>
+            <div className="container-fav-and-trailer">
+            <a href="/" className="back-arrow"><ArrowBackOutlinedIcon />  Trailer </a>
+ 
+            <div className="favorite"><Favorite/> </div>
+            </div>
              <Video />
             <h1>{movie.title}</h1>
             <span>Data de lançamento: {moment(movie.release).format('DD/MM/YYYY')}</span>
 
-            <p> {movie.sinopese} </p>
+            <p> <strong>Sinopse: </strong> {movie.sinopese} </p>
 
             <div className="cast-infos">
                 <Cast />

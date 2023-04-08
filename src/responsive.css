@@ -1,0 +1,182 @@
+@media screen and (max-width: 540px) {
+  .featured-movie,
+  .featured-movie-description {
+    width: 100%;
+    height: auto;
+  }
+
+  .featured-movie img {
+    opacity: 1;
+    margin-top: 40px;
+    border-radius: 6px;
+  }
+
+  .featured-movie-description {
+    position: relative;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .featured-movie > .container {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .welcome-message {
+    position: relative;
+    padding: 20px;
+    line-height: initial;
+    text-align: left;
+  }
+
+  .featured-movie-description .icone-play {
+    position: absolute;
+    right: 24px;
+    background-color: #e20000;
+    background-size: 13px;
+    border-radius: 100px;
+    width: 45px;
+    height: 45px;
+    background-position: 17px;
+    margin-top: -30px;
+  }
+
+  .featured-movie-description h2 {
+    font-size: 1.3rem;
+    line-height: 35px;
+    margin-bottom: 0.4rem;
+    margin-top: 0.4rem;
+  }
+
+  .title-area {
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .container.othermovies {
+    margin-top: 0;
+    max-width: 94vw;
+    overflow: hidden;
+  }
+
+  .movielist {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 14px;
+    width: 100%;
+    overflow: auto;
+  }
+
+  .movielist li {
+    min-width: 41vw;
+  }
+
+  .featured-movie-description span:nth-child(1) {
+    margin-bottom: 0;
+  }
+
+  .genre-movie ul > li {
+    margin-right: 20px;
+  }
+
+  .movielist ul li {
+    width: 35vw;
+  }
+
+  .poster-img .icone-play {
+    display: none;
+  }
+
+  .poster-img {
+    height: 154px;
+    width: 100%;
+  }
+
+  .body-movie-description h2 {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .body-movie-description span {
+    display: none;
+  }
+
+  .cast-infos .container {
+    max-width: 100vw;
+  }
+
+
+  .container.cast li img {
+    width: 26vw;
+    height: 26vw;
+  }
+
+.cast-infos .container {
+  max-width: 100vw;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  }
+
+  .container-movie {
+    width: 100%;
+    padding: 0rem;
+  }
+
+  .container-movie h1 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    line-height: 28px;
+  }
+
+  .body-movie-description .genre-movie ul li {
+    display: none;
+  }
+
+  .featured-movie-description {
+    left: 0;
+    right: 0;
+    position: relative;
+    max-width: 100%;
+    transform: unset;
+  }
+
+  .container-movie h1, .container-movie span, .container-movie p, .title-elenco{
+    padding: 0rem 0.5rem;
+  }
+
+  .container-fav-and-trailer {
+    padding: 0.8rem;
+    margin-bottom: 0;
+  }
+
+  .container-movie p {
+    font-size: 12px;
+  }
+
+  /* Mensagem de salvo nos favoritos e componente favorito */
+
+  .heart-icons {
+    background: unset;
+    border: unset;
+    color: #ffffffc4;
+}
+
+.saved-mesg {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #121212;
+    right: 0;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    align-items: center;
+    top: unset;
+    margin: 0;
+  }
+}
+

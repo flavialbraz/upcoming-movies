@@ -59,22 +59,21 @@ function Home() {
     return (
         <div className="App">
 
-
+        <div className="welcome-message">Descubra os próximos lançamentos </div>
             {featuredMovie && (
                 <div className="featured-movie">
- 
-                    <div className="container">
-                    <div className="welcome-message">Descubra os próximos lançamentos </div>
-
+  
+                    
+                    <img src={`https://image.tmdb.org/t/p/original${featuredMovie.backdrop_path}`} alt={featuredMovie.title} />
                         <div className="featured-movie-description">
                             <span>O mais bem avaliado: </span>
-                            <div className="icone-play"></div>
+                            <Link to={`/more/${featuredMovie.id}`}>  <div className="icone-play"></div></Link>
                             <Link to={`/more/${featuredMovie.id}`}> <h2>{featuredMovie.title}</h2> </Link>
                             <span className="genre-movie"> {getGenres(featuredMovie.genre_ids)}  </span>
                         </div>
-                    </div>
+                     
 
-                    <img src={`https://image.tmdb.org/t/p/original${featuredMovie.backdrop_path}`} alt={featuredMovie.title} />
+                    
 
                 </div>
             )}
@@ -82,6 +81,7 @@ function Home() {
 
 
             <div className="container othermovies">
+                
                 <div className="title-area">Últimos lançamentos </div>
 
                 <ul className="movielist">
